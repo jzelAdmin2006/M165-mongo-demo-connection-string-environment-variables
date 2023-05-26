@@ -1,10 +1,10 @@
 import os
 
-from pymongo import MongoClient
+from db import Db
 
 print(os.environ['PATH'])
 
-connection_string = os.environ['MONGODB_CONNECTION_STRING']
-client = MongoClient(connection_string)
+db = Db()
+client = db.get_client()
 dbs = client.list_database_names()
 print(dbs)
